@@ -12,10 +12,10 @@ Consider Matrix of size $N=4$ and lets seperate them as blocks of dimension 2.
 $$
 \begin{aligned}
 \underline{Matrix A} \\
-\def\arraystretch{1.5}
-   \begin{array}{cc:c}
+\begin{array}{cc:cc}
   a_{00} & a_{01} & a_{02} & a_{03}\\ 
-  a_{10} & a_{11} & a_{12} & a_{13}\\ \hdashline
+  a_{10} & a_{11} & a_{12} & a_{13}\\
+  \hdashline
   a_{20} & a_{21} & a_{22} & a_{23}\\ 
   a_{30} & a_{31} & a_{32} & a_{33}\\
 \end{array}
@@ -23,10 +23,10 @@ $$
 \kern{3em}
 \begin{aligned}
 \underline{Matrix B} \\
-\def\arraystretch{1.5}
-   \begin{array}{cc:c}
+\begin{array}{cc:cc}
   b_{00} & b_{01} & b_{02} & b_{03}\\ 
-  b_{10} & b_{11} & b_{12} & b_{13}\\ \hdashline
+  b_{10} & b_{11} & b_{12} & b_{13}\\
+  \hdashline
   b_{20} & b_{21} & b_{22} & b_{23}\\ 
   b_{30} & b_{31} & b_{32} & b_{33}\\
 \end{array}
@@ -34,6 +34,7 @@ $$
 $$
 
 Matrix A and B can be rearanged as blocks:
+
 $$
 \begin{aligned}
 \underline{Matrix A} \\
@@ -51,7 +52,9 @@ B_{10} & B_{11}\\
 \end{matrix}
 \end{aligned}
 $$ 
+
 where 
+
 $$
 \begin{aligned}
 A_{00} = \kern{0.5em}
@@ -61,6 +64,7 @@ a_{10} & a_{11}\\
 \end{matrix}
 \end{aligned}
 $$
+
 $$
 \begin{aligned}
 A_{11} = \kern{0.5em}
@@ -71,11 +75,12 @@ a_{32} & a_{33}\\
 \end{aligned}
 $$
 
-The objective is to get the dot product of $ C = A \odot B $ 
+The objective is to get the dot product of $C = A \odot B$ 
 
 The main idea here is understanding addition is commutative, </br> meaning the order in which addition is done does not effect the final result.
 
 We can formulate C as, 
+
 $$
 \begin{aligned}
 C = \kern{0.5em}
@@ -92,14 +97,14 @@ A_{10} & A_{11}\\
 \begin{bmatrix}
 B_{00} & B_{01}\\
 B_{10} & B_{11}\\
-\end{bmatrix}\\ \\
-= 
-\begin{bmatrix}
+\end{bmatrix}\\ \\ 
+= \begin{bmatrix}
 A_{00} \cdotp B_{00} + A_{01} \cdotp B_{10} & A_{00} \cdotp B_{10} + A_{01} \cdotp B_{11}\\ \\
 A_{10} \cdotp B_{00} + A_{11} \cdotp B_{10} & A_{10} \cdotp B_{10} + A_{11} \cdotp B_{11}\\ 
 \end{bmatrix}
 \end{aligned} 
 $$
+
 
 ```python
 # Consider two matrices where N -> matrix size and BLOCK -> block size, here N=4 and BLOCK=2
